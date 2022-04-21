@@ -1,0 +1,89 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+	
+
+	<bean id="a" class="com.net.plus.model.Item">
+		<property name="id" value="000001" />
+		<property name="name" value="A" />
+		<property name="price" value="50.00f" />
+		<property name="quantity" value="3" />
+
+	</bean>
+
+	<bean id="b" class="com.net.plus.model.Item">
+		<property name="id" value="000002" />
+		<property name="name" value="B" />
+		<property name="price" value="30.00f" />
+		<property name="quantity" value="2" />
+		
+	</bean>
+
+	<bean id="c" class="com.net.plus.model.Item">
+		<property name="id" value="000003" />
+		<property name="name" value="C" />
+		<property name="price" value="20.00f" />
+		<property name="quantity" value="5" />
+		
+	</bean>
+	<bean id="d" class="com.net.plus.model.Item">
+		<property name="id" value="000004" />
+		<property name="name" value="D" />
+		<property name="price" value="15.00f" />
+		<property name="quantity" value="6" />
+		
+	</bean>
+	<bean id="e" class="com.net.plus.model.Item">
+		<property name="id" value="000005" />
+		<property name="name" value="E" />
+		<property name="price" value="5.00f" />
+		<property name="quantity" value="10" />
+		
+	</bean>
+
+	<bean id="itemDaoCollectionImpl"
+		class="com.net.plus.dao.impl.ItemDaoCollectionImpl">
+		<property name="itemList">
+			<list>
+				<ref bean="a" />
+				<ref bean="b" />
+				<ref bean="c" />
+				<ref bean="d" />
+				<ref bean="e" />
+			</list>
+		</property>
+
+
+	</bean>
+	<bean id="cart" class="com.net.plus.model.Cart">
+
+
+	</bean>
+	<bean id="cartDaoCollectionImpl"
+		class="com.net.plus.dao.CartDao">
+		<property name="userCarts">
+			<map>
+				<entry key="1" value-ref="cart" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="itemService"
+		class="com.net.plus.service.ItemService">
+
+
+
+	</bean>
+
+	<bean id="cartService"
+		class="com.net.plus.service.CartService">
+
+
+
+	</bean>
+
+</beans>
